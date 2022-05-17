@@ -84,7 +84,9 @@ const Home: NextPage<HomeProps> = ({ state }) => {
 
 export async function getStaticProps(context: GetStaticPropsContext) {
   const state = useStore.getState();
+  //TODO: if you are doing SSR instead of SSG don't forget to reset store before doing anything
   await state.increasePopulation();
+  
   return {
     props: {
       state: {
